@@ -38,8 +38,19 @@ from libqtile.utils import guess_terminal
 from libqtile import extension
 from libqtile.backend.base import Window
 from libqtile.layout.base import Layout
+from libqtile import hook
+from libqtile import qtile
+import os
+import subprocess
 
-mod = "mod1"
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.run([home])
+
+
+mod = "mod4"
 terminal = guess_terminal()
 # browser = firefox()
 
@@ -133,7 +144,7 @@ keys = [
         desc="Toggle between split and unsplit sides of stack",
     ),
     Key([mod], "Return",
-            lazy.spawn(terminal),
+            lazy.spawn("kitty"),
             desc="Launch terminal"
             ),
     
@@ -160,7 +171,7 @@ keys = [
             ),
 
     Key([mod], "w",
-            lazy.spawn("firefox"),
+            lazy.spawn("librewolf"),
             desc="launch browser"
             ),
     Key([mod], "f",
@@ -202,10 +213,16 @@ keys = [
 		lazy.spawn("i3lock -i /usr/share/backgrounds/archlinux/split.png")
 		),
 
+    # screenshot
+
+    Key([mod], "Print",
+        lazy.spawn("flameshot full")
+            ),
+
 
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     
-    Key([mod], "d",
+    Key([mod], "p",
             lazy.run_extension(extension.DmenuRun(
         dmenu_prompt=">",
         demnu_font="sans",
@@ -290,6 +307,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.CurrentLayoutIcon(),
                 widget.CurrentLayout(),
                 widget.Sep(
                     foreground= 'ffffff'
@@ -327,25 +345,47 @@ screens = [
                     ),
                 # widget.ThermalZone(),
                 
-                widget.CPU(),
+                widget.CPU(
+                    format= '     {load_percent}%'
+                    ),
                 
                 widget.Sep(
                     foreground= 'ffffff'
                     ),
                 
-                widget.Memory(),
+                widget.Memory(
+                    format= '     {MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}'
+                    ),
                 
                 widget.Sep(
                     foreground= 'ffffff'
                     ),
-                
-                widget.Clock(),
-                
+
+                widget.Battery(
+                    format = '      {percent:2.0%} {hour:d}:{min:02d}'
+                    ),
+
                 widget.Sep(
                     foreground= 'ffffff'
                     ),
                 
-                widget.QuickExit(),
+                widget.Net(
+                    format = '      {down} ↓↑ {up}'
+                    ),
+
+                widget.Sep(
+                    foreground = 'ffffff'
+                    ),
+
+                widget.Clock(
+                    format= '     %d/%m/%y %H:%M'
+                    ),
+                
+                # widget.Sep(
+                 #   foreground= 'ffffff'
+                   # ),
+                
+                #widget.QuickExit(),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
