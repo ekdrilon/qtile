@@ -171,7 +171,7 @@ keys = [
             ),
 
     Key([mod], "w",
-            lazy.spawn("librewolf"),
+            lazy.spawn("firefox"),
             desc="launch browser"
             ),
     Key([mod], "f",
@@ -338,6 +338,9 @@ screens = [
                 # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # widget.Systray(),
                 
+                widget.DF(
+                    format = '     {p} ({uf}{m}|{r:.0f}%)'
+                    ),
                 widget.Cmus(),
                 
                 widget.Sep(
@@ -349,6 +352,15 @@ screens = [
                     format= '     {load_percent}%'
                     ),
                 
+
+                widget.Sep(
+                    foreground= 'ffffff'
+                    ),
+
+                widget.ThermalSensor(
+                    fmt = '     {}'
+                    ),
+
                 widget.Sep(
                     foreground= 'ffffff'
                     ),
