@@ -234,7 +234,42 @@ keys = [
         ))),
 ]
 
-groups = [Group(i) for i in "123456789"]
+# groups = [Group(i) for i in "123456789"]
+
+groups = []
+
+group_names = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "0",
+]
+
+group_labels = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+for i in range(len(group_names)):
+    groups.append(
+        Group(
+            name=group_names[i],
+            label=group_labels[i],
+        )
+    )
 
 for i in groups:
     keys.extend(
@@ -307,8 +342,18 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayoutIcon(),
-                widget.CurrentLayout(),
+                # widget.CurrentLayoutIcon(
+                   #  background= "#e0ffde",
+                    # ),
+                widget.Sep(
+                    foreground= "#ffffff"
+                    ),
+
+                widget.CurrentLayout(
+                    background= "#e0ffde",
+                    foreground= "#000000"
+                    ),
+
                 widget.Sep(
                     foreground= 'ffffff'
                     ),
@@ -349,7 +394,9 @@ screens = [
                 # widget.ThermalZone(),
                 
                 widget.CPU(
-                    format= '     {load_percent}%'
+                    format= '     {load_percent}%',
+                    background= "#f5d9c7",
+                    foreground= "#000000"
                     ),
                 
 
@@ -358,7 +405,9 @@ screens = [
                     ),
 
                 widget.ThermalSensor(
-                    fmt = '     {}'
+                    fmt = '     {}',
+                    background= "#ffc0cb",
+                    foreground= "#000000"
                     ),
 
                 widget.Sep(
@@ -366,7 +415,9 @@ screens = [
                     ),
                 
                 widget.Memory(
-                    format= '     {MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}'
+                    format= '     {MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
+                    background= "#ffd4ff",
+                    foreground= "#000000"
                     ),
                 
                 widget.Sep(
@@ -374,7 +425,9 @@ screens = [
                     ),
 
                 widget.Battery(
-                    format = '      {percent:2.0%} {hour:d}:{min:02d}'
+                    format = '      {percent:2.0%} {hour:d}:{min:02d}',
+                    background= "#ff85fa",
+                    foreground= "#000000"
                     ),
 
                 widget.Sep(
@@ -382,7 +435,9 @@ screens = [
                     ),
                 
                 widget.Net(
-                    format = '      {down} ↓↑ {up}'
+                    format = '      {down} ↓↑ {up}',
+                    background= "#b298ff",
+                    foreground= "#000000"
                     ),
 
                 widget.Sep(
@@ -390,7 +445,9 @@ screens = [
                     ),
 
                 widget.Clock(
-                    format= '     %d/%m/%y %H:%M'
+                    format= '     %d/%m/%y %H:%M',
+                    background= "f6ebff",
+                    foreground= "000000"
                     ),
                 
                 # widget.Sep(
