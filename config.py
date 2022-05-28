@@ -7,10 +7,12 @@
 # Copyright (c) 2013 Tao Sauvage
 #
 #########################################################################
-# Hello This Is Me Ekd143,                                             ##
+# Hello This Is Me ekdrilon,                                           ##
 # this is my config mostly default and some add ons                    ##
 # some of it is copied from dt qtile config,                           ##
 # https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/qtile         ##
+# and from this post on reddit and here is his dotfiles                ##
+# https://github.com/Opiture/QtileDots2/blob/main/config.py            ##
 #########################################################################
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
