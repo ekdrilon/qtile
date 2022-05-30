@@ -226,13 +226,13 @@ keys = [
     
     Key([mod], "p",
             lazy.run_extension(extension.DmenuRun(
-        dmenu_prompt=">",
-        demnu_font="sans",
-        fontsize=10 ,
-        background="#15181a",
-        foreground="#ffffff",
-        selected_background='2c0a28',
-        selected_foreground="#fff",
+        dmenu_prompt = ">",
+        demnu_font = "sans",
+        fontsize = 10 ,
+        background = "#15181a",
+        foreground = "#ffffff",
+        selected_background= '2c0a28',
+        selected_foreground= "#fff",
         ))),
 ]
 
@@ -301,10 +301,10 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-        border_focus= '#27205c',
-        border_normal= '#000000',
-        border_width=4,
-        margin=8
+        border_focus = '#27205c',
+        border_normal = '#000000',
+        border_width =4,
+        margin =8
         ),
     
     # layout.Max(),
@@ -314,10 +314,10 @@ layouts = [
     # layout.Matrix(),
     
     layout.MonadTall(
-        border_focus= '#91600a',
-        border_normal= '#000000',
-        border_width=4,
-        margin=8
+        border_focus = '#91600a',
+        border_normal = '#000000',
+        border_width =4,
+        margin =8
         ),
 
     # layout.MonadWide(),
@@ -327,11 +327,29 @@ layouts = [
     # layout.VerticalTile(),
     # layout.Zoomy(),
     layout.Floating(
-        border_focus= '#b07819',
-        border_normal= '#000000',
-        border_width=2 
+        border_focus = '#b07819',
+        border_normal = '#000000',
+        border_width =2 
         ),
 ]
+
+colors = [
+            ["#000000", "#000000"],#colors[0], black
+            ["#ffffff", "#ffffff"],#colors[1], white
+            ["#e0ffde", "#e0ffde"],#colors[2], light green
+            ["#f5d9c7", "#f5d9c7"],#colors[3], dirty white
+            ["#ffc0cb", "#ffc0cb"],#colors[4], skin
+            ["#ffd4ff", "#ffd4ff"],#colors[5], light pink
+            ["#ff85fa", "#ff85fa"],#colors[6], violet
+            ["#b298ff", "#b298ff"],#colors[7], blue violet
+            ["#f6ebff", "#f6ebff"],#colors[8], white time
+            ["#0d0a17", "#0d0a17"],#colors[9], black bar
+            ["#2c0a28", "#27205c"],#colors[10], workspaces highlight
+        ]
+
+
+
+
 
 widget_defaults = dict(
     font="sans",
@@ -348,25 +366,25 @@ screens = [
                    #  background= "#e0ffde",
                     # ),
                 widget.Sep(
-                    foreground= "#ffffff"
+                    foreground = colors[1]
                     ),
 
                 widget.CurrentLayout(
-                    background= "#e0ffde",
-                    foreground= "#000000"
+                    background = colors[2],
+                    foreground = colors[0]
                     ),
 
                 widget.Sep(
-                    foreground= 'ffffff'
+                    foreground = colors[1]
                     ),
                 
                 widget.GroupBox(
-                    highlight_method= 'line',
-                    highlight_color=['2c0a28','27205c']
+                    highlight_method = 'line',
+                    highlight_color = colors[10]
                     ),
                 
                 widget.Sep(
-                    foreground= 'ffffff'
+                    foreground = colors[1]
                     ),
                 
                 widget.Prompt(),
@@ -376,7 +394,7 @@ screens = [
                 widget.Spacer(),
                 
                 widget.Chord(
-                    chords_colors={
+                    chords_colors ={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
@@ -391,65 +409,65 @@ screens = [
                 widget.Cmus(),
                 
                 widget.Sep(
-                    foreground= 'ffffff'
+                    foreground = colors[1]
                     ),
                 # widget.ThermalZone(),
                 
                 widget.CPU(
                     format= '     {load_percent}%',
-                    background= "#f5d9c7",
-                    foreground= "#000000"
+                    background = colors[3],
+                    foreground = colors[0]
                     ),
                 
 
                 widget.Sep(
-                    foreground= 'ffffff'
+                    foreground = colors[1]
                     ),
 
                 widget.ThermalSensor(
                     fmt = '     {}',
-                    background= "#ffc0cb",
-                    foreground= "#000000"
+                    background = colors[4],
+                    foreground = colors[0]
                     ),
 
                 widget.Sep(
-                    foreground= 'ffffff'
+                    foreground = colors[1]
                     ),
                 
                 widget.Memory(
                     format= '     {MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
-                    background= "#ffd4ff",
-                    foreground= "#000000"
+                    background = colors[5],
+                    foreground = colors[0]
                     ),
                 
                 widget.Sep(
-                    foreground= 'ffffff'
+                    foreground = colors[1]
                     ),
 
                 widget.Battery(
                     format = '      {percent:2.0%} {hour:d}:{min:02d}',
-                    background= "#ff85fa",
-                    foreground= "#000000"
+                    background = colors[6],
+                    foreground = colors[0]
                     ),
 
                 widget.Sep(
-                    foreground= 'ffffff'
+                    foreground = colors[1]
                     ),
                 
                 widget.Net(
                     format = '      {down} ↓↑ {up}',
-                    background= "#b298ff",
-                    foreground= "#000000"
+                    background = colors[7],
+                    foreground = colors[0]
                     ),
 
                 widget.Sep(
-                    foreground = 'ffffff'
+                    foreground = colors[1]
                     ),
 
                 widget.Clock(
                     format= '     %d/%m/%y %H:%M',
-                    background= "f6ebff",
-                    foreground= "000000"
+                    background = colors[8],
+                    foreground = colors[0]
                     ),
                 
                 # widget.Sep(
@@ -461,7 +479,7 @@ screens = [
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-            background= '#0d0a17'
+            background = colors[9]
         ),
     ),
 ]
