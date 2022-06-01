@@ -27,6 +27,9 @@ syntax on
 " Add numbers to the file.
 set number
 
+"set colorscheme
+colorscheme default
+
 " Highlight cursor line underneath the cursor horizontally.
 " set cursorline
 
