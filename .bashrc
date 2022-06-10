@@ -25,8 +25,9 @@ alias findcache="du -sh .cache/"
 alias cclean="rm -rf .cache/*"
 alias jclean="sudo journalctl --vacuum-time=2weeks"
 alias fhram="free -h"
-
-
+# alias rfeq="sudo reflector --sort rate -l 70 -p https --save /etc/pacman.d/mirrorlist"
+alias nfetch="neofetch"
+alias rfeq="sudo reflector --verbose -l 200 -n 20 -p https --sort rate --save /etc/pacman.d/mirrorlist"
 
 
 pfetch
